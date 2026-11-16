@@ -1,0 +1,22 @@
+{
+  "yolo26m.pt": {
+    "sha256": "401cea9ab23ad19246ff7744859816bc599f350e93c9dd30367b6f0a0745d0b7",
+    "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt",
+    "role": "YOLO26-M initialization"
+  },
+  "rtdetr-l.pt": {
+    "sha256": "6de60b10d4bc566f00cda0f5b4d64afe4b66d48dc9695d2171effb7859d8e73f",
+    "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/rtdetr-l.pt",
+    "role": "RT-DETR-L initialization"
+  },
+  "yolo26n.pt": {
+    "sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt",
+    "role": "automatic mixed-precision compatibility probe"
+  },
+  "fasterrcnn_resnet50_fpn_coco-258fb6c6.pth": {
+    "sha256": "258fb6c638b15964ddcdd1ae0748c5eef1be9e732750120cc857feed3faac384",
+    "url": "https://download.pytorch.org/models/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth",
+    "role": "Faster R-CNN COCO_V1 initialization"
+  }
+}

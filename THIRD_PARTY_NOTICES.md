@@ -1,0 +1,13 @@
+# Third-party notices
+
+Original project source is copyright 2026 J.C. Vaught and contributors and is distributed under AGPL-3.0-or-later. Source dependencies are installed from their upstream distributions through the committed locks; their notices and licenses remain in those distributions. This repository does not vendor those libraries or redistribute their model weights. Exact upstream Ultralytics and torchvision license copies and retrieval URLs are preserved in [LICENSES](LICENSES).
+
+Ultralytics 8.4.14 supplies YOLO26, its model initialization assets, and the Ultralytics RT-DETR implementation used here. Ultralytics offers AGPL-3.0 and enterprise licensing. The benchmark's coordinate-preserving predictor extends the upstream `DetectionPredictor` interface. See the [Ultralytics source and license](https://github.com/ultralytics/ultralytics), [license terms](https://www.ultralytics.com/license), and [model asset repository](https://github.com/ultralytics/assets). The presence of an RT-DETR architecture name does not replace the terms of the Ultralytics implementation and assets used in this repository.
+
+PyTorch and torchvision retain their upstream BSD-style licenses. The Faster R-CNN wrapper uses torchvision's detector, ResNet-50 backbone, and COCO_V1 pretrained initialization. See the [PyTorch license](https://github.com/pytorch/pytorch/blob/main/LICENSE), [torchvision license](https://github.com/pytorch/vision/blob/main/LICENSE), and [torchvision pretrained-model notice](https://github.com/pytorch/vision#models). The torchvision code license does not determine all terms applicable to pretrained weights or their training data. U-Net uses the repository's architecture and initializes from scratch.
+
+NumPy, SciPy, Pillow, OpenCV, PyYAML, tqdm, scikit-learn, and pycocotools provide array processing, image operations, configuration parsing, progress reporting, and COCO evaluation. Rust dependencies are resolved by the separate Otsu and Wavelet Cargo lockfiles. Preserve their upstream notices when redistributing dependency distributions or compiled binaries.
+
+External radar data, annotations, pretrained assets, trained checkpoints, and research-result archives have separate ownership and licensing. No license statement in this source repository grants rights to those artifacts. Consult the original provider or the specific artifact record before redistribution or use.
+
+The frozen conversion helpers under `src/revision/vendor/ec6d088` are original project source, preserved byte-for-byte for source-integrity verification. Their `SOURCE.json` records the source revision and file digests. This directory does not contain externally vendored library source.

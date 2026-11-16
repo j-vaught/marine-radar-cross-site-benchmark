@@ -1,0 +1,18 @@
+use std::env;
+
+fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    if env::var_os("CARGO_FEATURE_CUDA").is_none() {
+        return;
+    }
+
+    println!("cargo:rerun-if-changed=cuda/kernels.cu");
+
+    cc::Build::new()
+        .cuda(true)
+        .file("cuda/kernels.cu")
+        .flag("-std=c++17")
+        .compile("otsu_cuda");
+
+    println!("cargo:rustc-link-lib=dylib=cudart");
+}

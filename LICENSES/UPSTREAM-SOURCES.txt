@@ -1,0 +1,10 @@
+ULTRALYTICS-8.4.14-LICENSE.txt
+https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.14/LICENSE
+
+TORCHVISION-0.20.1-LICENSE.txt
+https://raw.githubusercontent.com/pytorch/vision/v0.20.1/LICENSE
+
+ULTRALYTICS-ASSETS-LICENSE.txt
+https://raw.githubusercontent.com/ultralytics/assets/main/LICENSE
+
+Retrieved 2026-11-15. The assets main branch is unpinned; the software licenses use the benchmark versions.

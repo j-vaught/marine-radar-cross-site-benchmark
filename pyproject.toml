@@ -1,0 +1,48 @@
+[project]
+name = "marine-radar-cross-site-benchmark"
+version = "0.1.0"
+description = "Cross-site marine radar detection, ablation, adaptation, and checkpoint replay"
+authors = [
+    {name = "J.C. Vaught", email = "jvaught@sc.edu"},
+    {name = "Ty Dangerfield"},
+]
+requires-python = ">=3.11,<3.12"
+
+license = "AGPL-3.0-or-later"
+readme = "README.md"
+
+dependencies = [
+    "numpy>=1.24", "scipy>=1.10", "tqdm", "pyyaml", "pillow",
+    "opencv-python>=4.8", "torch==2.5.1", "torchvision==0.20.1",
+    "ultralytics==8.4.14", "pycocotools==2.0.11",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.2.0",
+    "ruff==0.17.5",
+    "ty==0.0.104",
+]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu121", marker = "sys_platform == 'linux' and platform_machine == 'x86_64'" }]
+torchvision = [{ index = "pytorch-cu121", marker = "sys_platform == 'linux' and platform_machine == 'x86_64'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.ruff]
+extend-exclude = ["src/revision/vendor"]
+line-length = 100
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ty.src]
+exclude = ["src/revision/vendor"]

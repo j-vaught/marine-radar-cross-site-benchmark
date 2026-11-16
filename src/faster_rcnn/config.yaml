@@ -1,0 +1,47 @@
+# Marine-Faster R-CNN Configuration
+
+model:
+  name: "Faster-RCNN"
+  backbone: "resnet50"
+  pretrained_backbone: true
+  num_classes: 2               # background + target
+
+  # Radar-specific anchor optimization
+  anchor_sizes: [[16], [32], [64], [128], [256]]
+  anchor_ratios: [[0.5, 1.0, 2.0]]
+
+  # RPN
+  rpn_pre_nms_top_n_train: 2000
+  rpn_post_nms_top_n_train: 1000
+  rpn_pre_nms_top_n_test: 1000
+  rpn_post_nms_top_n_test: 500
+  rpn_nms_thresh: 0.7
+  rpn_fg_iou_thresh: 0.7
+  rpn_bg_iou_thresh: 0.3
+
+  # ROI
+  box_score_thresh: 0.05
+  box_nms_thresh: 0.5
+  box_detections_per_img: 100
+  eval_box_score_thresh: 0.0
+  eval_box_detections_per_img: 300
+
+training:
+  epochs: 12
+  batch_size: 2
+  optimizer: "SGD"
+  lr: 0.0025
+  momentum: 0.9
+  weight_decay: 0.0005
+  lr_scheduler: "StepLR"
+  lr_step_size: 8
+  lr_gamma: 0.1
+  device: "0"
+  workers: 8
+  amp: true
+  patience: 3
+  seeds: [42]
+
+postprocessing:
+  score_threshold: 0.05
+  score_threshold_grid: [0.05, 0.10, 0.20, 0.30, 0.50]
