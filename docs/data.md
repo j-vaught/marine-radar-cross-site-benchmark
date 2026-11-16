@@ -19,12 +19,16 @@ d7c4d4f2395bdc5fa8bb00f9badf12fdd57c94f3c48ae5d1428ed2a6352dc549
 
 ## Artifact download interface
 
-The downloader lists files from a public Zenodo record and retrieves only explicitly selected files. It verifies the repository-supplied checksum before completing each download and does not extract archives. Set `RECORD` to the published research-artifact record number and select filenames from its listing.
+The [research-artifact record](https://zenodo.org/records/24266410) has record number `24266410`. The downloader lists files from the published record and retrieves only explicitly selected files. It verifies the repository-supplied checksum before completing each download and does not extract archives. Select exact filenames from its listing.
 
 ```sh
-uv run --locked python -m src.revision.download --record "$RECORD"
-uv run --locked python -m src.revision.download --record "$RECORD" --file "$FILE" --output "$ARTIFACTS"
+uv run --locked python -m src.revision.download --record 24266410
+uv run --locked python -m src.revision.download --record 24266410 --file "$FILE" --output "$ARTIFACTS"
 ```
+
+Extract selected archives into one new directory after checksum verification. `results-metadata.tar.gz` supplies `protocol/`, `analysis/`, `provenance/`, `manifests/`, and per-run metadata under `runs/<job>/`. `predictions.tar.gz` supplies run and classical prediction files. Each `weights-*.tar.gz` supplies selected `runs/<job>/checkpoint.pt` files; the adjacent `run.json` identifies the corresponding checkpoint and its digest. No archive supplies radar images or reference annotations.
+
+The fixed files are `protocol/split_manifest.json`, `protocol/processed-frozen-protocol.json`, and `protocol/adaptation-frozen-protocol.json`. Use these paths for `MANIFEST`, `BASE_PROTOCOL`, and `ADAPT_PROTOCOL` in the reproduction guide.
 
 Read each artifact's license and access notes before use. A record may contain only metadata or selected model families. Obtain any separately restricted data or pretrained assets from their owners. After downloading, verify the package's SHA-256 manifest before extracting into a new directory.
 

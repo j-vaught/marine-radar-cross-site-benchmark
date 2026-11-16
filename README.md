@@ -2,7 +2,7 @@
 
 This repository trains and evaluates marine radar detectors across the DAAN, DARC, and MANV acquisition sites. The fixed benchmark compares four learned detectors and five classical methods, followed by controlled image-preprocessing ablations and a small supervised adaptation study. J.C. Vaught maintains the implementation.
 
-The repository contains source code, fixed configurations, dependency locks, and tests. Obtain the dataset through its original provider under the provider's terms. Checkpoints, predictions, and evaluation records are separate research artifacts. [Data and artifact access](docs/data.md) describes the input layout and download interface.
+The repository contains source code, fixed configurations, dependency locks, and tests. Obtain the dataset through its original provider under the provider's terms. Checkpoints, predictions, and evaluation records belong to the separate [Zenodo research-artifact record](https://zenodo.org/records/24266410). [Data and artifact access](docs/data.md) describes the input layout and download interface.
 
 ## Installation
 
